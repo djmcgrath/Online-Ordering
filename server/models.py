@@ -85,6 +85,13 @@ class Cart(db.Model, SerializerMixin):
 
     serialize_rules = ('-cart_menu_item.cart',)
 
+    @validates("customer_id")
+    def validate_customer_id (self, key, customerId):
+        existing_cart = Cart.query.filter_by(customer_id = customerId).first()
+        if existing_cart is not None:
+            raise ValueError("Customer already has cart darlin (said in a southern accent)")
+        return customerId
+
     def __repr__(self):
         return f'<Cart {self.id}>'
 
