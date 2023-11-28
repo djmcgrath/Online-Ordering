@@ -1,8 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./Home";
+import NavLayout from "./NavLayout";
+import Menu from "./Menu";
 
 function App() {
-  return <h1>Project Client</h1>;
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<NavLayout/>}>
+        <Route path="/" element={<Home />} />
+        <Route path="Menu" element={<Menu />} />
+      </Route>
+    )
+  )
+
+  return (
+    <div>
+      <RouterProvider router={router} />
+    </div>
+  )
 }
 
 export default App;

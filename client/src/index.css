@@ -1,7 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 :root {
   --bg: #282c34;
   --header: #fff;
   --link: #61dafb;
   --text: hsla(0, 0%, 100%, 0.88);
+  --font: Helvetica, sans-serif;
 }
 
+body {
+  background-color: var(--bg);
+}
+h1 {
+  color: var(--header);
+  font-family: var(--font)
+}
+
+#slide1 img {
+  margin: auto;
+  height: 400px;
+  /* width: auto; */
+}
+
+#slide2 img {
+  margin: auto;
+  height: 400px;
+  /* width: auto; */
+}
+
+#slide3 img {
+  margin: auto;
+  height: 400px;
+  /* width: auto; */
+}
+
+#slide4 img {
+  margin: auto;
+  height: 400px;
+  /* width: auto; */
+}
