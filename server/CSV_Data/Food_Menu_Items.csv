@@ -1,0 +1,51 @@
+item_name,description,item_category,image,cost
+Bruschetta,"Bruschetta, a perfect starter to whet your appetite, featuring a blend of savory flavors.",Appetizers,bruschetta.jpg,5.0
+Spring Rolls,"Spring Rolls, a perfect starter to whet your appetite, featuring a blend of savory flavors.",Appetizers,spring_rolls.jpg,7.5
+Garlic Bread,"Garlic Bread, a perfect starter to whet your appetite, featuring a blend of savory flavors.",Appetizers,garlic_bread.jpg,10.0
+Chicken Wings,"Chicken Wings, a perfect starter to whet your appetite, featuring a blend of savory flavors.",Appetizers,chicken_wings.jpg,12.5
+Stuffed Mushrooms,"Stuffed Mushrooms, a perfect starter to whet your appetite, featuring a blend of savory flavors.",Appetizers,stuffed_mushrooms.jpg,15.0
+Grilled Salmon,"Grilled Salmon, a delectable and satisfying main dish that promises a memorable dining experience.",Main Course,grilled_salmon.jpg,5.0
+Beef Steak,"Beef Steak, a delectable and satisfying main dish that promises a memorable dining experience.",Main Course,beef_steak.jpg,7.5
+Vegetable Lasagna,"Vegetable Lasagna, a delectable and satisfying main dish that promises a memorable dining experience.",Main Course,vegetable_lasagna.jpg,10.0
+Chicken Parmesan,"Chicken Parmesan, a delectable and satisfying main dish that promises a memorable dining experience.",Main Course,chicken_parmesan.jpg,12.5
+Prawn Risotto,"Prawn Risotto, a delectable and satisfying main dish that promises a memorable dining experience.",Main Course,prawn_risotto.jpg,15.0
+Cheesecake,"Cheesecake, a sweet and indulgent treat to cap off your meal on a delightful note.",Desserts,cheesecake.jpg,5.0
+Chocolate Brownie,"Chocolate Brownie, a sweet and indulgent treat to cap off your meal on a delightful note.",Desserts,chocolate_brownie.jpg,7.5
+Apple Pie,"Apple Pie, a sweet and indulgent treat to cap off your meal on a delightful note.",Desserts,apple_pie.jpg,10.0
+Tiramisu,"Tiramisu, a sweet and indulgent treat to cap off your meal on a delightful note.",Desserts,tiramisu.jpg,12.5
+Ice Cream Sundae,"Ice Cream Sundae, a sweet and indulgent treat to cap off your meal on a delightful note.",Desserts,ice_cream_sundae.jpg,15.0
+Mojito,"Mojito, a refreshing choice to quench your thirst and complement your meal.",Beverages,mojito.jpg,5.0
+Lemonade,"Lemonade, a refreshing choice to quench your thirst and complement your meal.",Beverages,lemonade.jpg,7.5
+Espresso,"Espresso, a refreshing choice to quench your thirst and complement your meal.",Beverages,espresso.jpg,10.0
+Green Tea,"Green Tea, a refreshing choice to quench your thirst and complement your meal.",Beverages,green_tea.jpg,12.5
+Mango Smoothie,"Mango Smoothie, a refreshing choice to quench your thirst and complement your meal.",Beverages,mango_smoothie.jpg,15.0
+Greek Salad,"Greek Salad, a fresh and healthy option bursting with a medley of vibrant flavors.",Salads,greek_salad.jpg,5.0
+Caesar Salad,"Caesar Salad, a fresh and healthy option bursting with a medley of vibrant flavors.",Salads,caesar_salad.jpg,7.5
+Fruit Salad,"Fruit Salad, a fresh and healthy option bursting with a medley of vibrant flavors.",Salads,fruit_salad.jpg,10.0
+Caprese Salad,"Caprese Salad, a fresh and healthy option bursting with a medley of vibrant flavors.",Salads,caprese_salad.jpg,12.5
+Waldorf Salad,"Waldorf Salad, a fresh and healthy option bursting with a medley of vibrant flavors.",Salads,waldorf_salad.jpg,15.0
+Tomato Soup,"Tomato Soup, a comforting and hearty choice to start your meal or enjoy on its own.",Soups,tomato_soup.jpg,5.0
+Chicken Noodle Soup,"Chicken Noodle Soup, a comforting and hearty choice to start your meal or enjoy on its own.",Soups,chicken_noodle_soup.jpg,7.5
+Minestrone,"Minestrone, a comforting and hearty choice to start your meal or enjoy on its own.",Soups,minestrone.jpg,10.0
+Miso Soup,"Miso Soup, a comforting and hearty choice to start your meal or enjoy on its own.",Soups,miso_soup.jpg,12.5
+Clam Chowder,"Clam Chowder, a comforting and hearty choice to start your meal or enjoy on its own.",Soups,clam_chowder.jpg,15.0
+Nachos,"Nachos, a perfect starter to whet your appetite, featuring a blend of savory flavors.",Appetizers,nachos.jpg,5.0
+Calamari,"Calamari, a perfect starter to whet your appetite, featuring a blend of savory flavors.",Appetizers,calamari.jpg,7.5
+Deviled Eggs,"Deviled Eggs, a perfect starter to whet your appetite, featuring a blend of savory flavors.",Appetizers,deviled_eggs.jpg,10.0
+Onion Rings,"Onion Rings, a perfect starter to whet your appetite, featuring a blend of savory flavors.",Appetizers,onion_rings.jpg,12.5
+Potato Skins,"Potato Skins, a perfect starter to whet your appetite, featuring a blend of savory flavors.",Appetizers,potato_skins.jpg,15.0
+Vegetable Stir Fry,"Vegetable Stir Fry, a delectable and satisfying main dish that promises a memorable dining experience.",Main Course,vegetable_stir_fry.jpg,5.0
+Lamb Chops,"Lamb Chops, a delectable and satisfying main dish that promises a memorable dining experience.",Main Course,lamb_chops.jpg,7.5
+Pork Ribs,"Pork Ribs, a delectable and satisfying main dish that promises a memorable dining experience.",Main Course,pork_ribs.jpg,10.0
+Shrimp Pasta,"Shrimp Pasta, a delectable and satisfying main dish that promises a memorable dining experience.",Main Course,shrimp_pasta.jpg,12.5
+Vegan Burger,"Vegan Burger, a delectable and satisfying main dish that promises a memorable dining experience.",Main Course,vegan_burger.jpg,15.0
+Fruit Tart,"Fruit Tart, a sweet and indulgent treat to cap off your meal on a delightful note.",Desserts,fruit_tart.jpg,5.0
+Panna Cotta,"Panna Cotta, a sweet and indulgent treat to cap off your meal on a delightful note.",Desserts,panna_cotta.jpg,7.5
+Banana Split,"Banana Split, a sweet and indulgent treat to cap off your meal on a delightful note.",Desserts,banana_split.jpg,10.0
+Macarons,"Macarons, a sweet and indulgent treat to cap off your meal on a delightful note.",Desserts,macarons.jpg,12.5
+Pavlova,"Pavlova, a sweet and indulgent treat to cap off your meal on a delightful note.",Desserts,pavlova.jpg,15.0
+Iced Coffee,"Iced Coffee, a refreshing choice to quench your thirst and complement your meal.",Beverages,iced_coffee.jpg,5.0
+Berry Smoothie,"Berry Smoothie, a refreshing choice to quench your thirst and complement your meal.",Beverages,berry_smoothie.jpg,7.5
+Hot Chocolate,"Hot Chocolate, a refreshing choice to quench your thirst and complement your meal.",Beverages,hot_chocolate.jpg,10.0
+Margarita,"Margarita, a refreshing choice to quench your thirst and complement your meal.",Beverages,margarita.jpg,12.5
+Ginger Tea,"Ginger Tea, a refreshing choice to quench your thirst and complement your meal.",Beverages,ginger_tea.jpg,15.0
