@@ -4,6 +4,7 @@ import { Switch, Route, createBrowserRouter, createRoutesFromElements, RouterPro
 import Home from "./Home";
 import NavLayout from "./NavLayout";
 import Menu from "./Menu";
+import Cart from "./Cart";
 
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
       <Route path="/" element={<NavLayout/>}>
         <Route path="/" element={<Home />} />
         <Route path="Menu" element={<Menu />} />
+        <Route path="Cart" element={<Cart />} />
       </Route>
     )
   )
