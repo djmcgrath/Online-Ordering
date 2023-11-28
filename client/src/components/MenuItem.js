@@ -1,9 +1,10 @@
 import React from 'react'
 
-function MenuItem({menuItem}) {
+function MenuItem({handlePost, menuItem}) {
 
     function handleAddToCart(){
-        console.log("Adding to cart...")
+        console.log(menuItem.id)
+        handlePost(menuItem.id)
     }
 
 
