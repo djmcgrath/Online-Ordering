@@ -3,6 +3,11 @@
 # Standard library imports
 from random import randint, choice as rc
 import random
+import pandas as pd
+
+# Load the CSV data into a DataFrame
+food_menu_items = pd.read_csv("CSV_Data/Food_Menu_Items.csv")
+print(food_menu_items)
 
 # Remote library imports
 from faker import Faker
@@ -26,11 +31,13 @@ def seed_ingredients():
 
 def seed_menu_items():
     menu_items = []
-    for _ in range(20):
+    for index, row in food_menu_items.iterrows():
         m = MenuItem(
-            item_name = fake.dish(),
-            description = fake.dish_description(),
-            cost = round(random.uniform(4.20, 69.69), 2)
+            item_name = row["item_name"],
+            description = row["description"],
+            item_category = row["item_category"],
+            # image = row["image"],
+            cost = row["cost"]
         )
         menu_items.append(m)
     return menu_items
