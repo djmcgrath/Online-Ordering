@@ -3,5 +3,13 @@
   --header: #fff;
   --link: #61dafb;
   --text: hsla(0, 0%, 100%, 0.88);
+  --font: Helvetica, sans-serif;
 }
 
+body {
+  background-color: var(--bg);
+}
+h1 {
+  color: var(--header);
+  font-family: var(--font)
+}
