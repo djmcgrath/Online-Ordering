@@ -47,6 +47,8 @@ class MenuItem(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     item_name = db.Column(db.String)
     description = db.Column(db.String)
+    item_category = db.Column(db.String)
+    # image = db.Column(db.String, nullable=True)
     menu_item_ingredients = db.relationship("MenuItemIngredient", back_populates="menu_item")
     cart_menu_item = db.relationship("CartMenuItem", back_populates="menu_item")
     cost = db.Column(db.Float)

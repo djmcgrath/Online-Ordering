@@ -64,6 +64,7 @@ class MenuItems(Resource):
             new_menu_item = MenuItem(
                 item_name = data["item_name"],
                 description = data["description"],
+                item_category = data["item_category"],
                 cost = data["cost"]
             )
             db.session.add(new_menu_item)
