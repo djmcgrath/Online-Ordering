@@ -31,7 +31,7 @@ export default function CartCard({ quantityValue, handlePatch, setQuantityValue,
         <p>${menuItem.cost}</p>
         <div className="card-actions justify-end">
           <input type="number" value={cquantityValue} onChange={(e) => {handleQuantity(e.target.value); handlePatch(cartItem.id, e.target.value)}} className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400 width:0.5rem"></input>
-          <button className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400">Remove</button>
+          <button className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:bg-red-600 transition duration-500 text-gray-400">Remove</button>
         </div>
       </div>
     </div>
