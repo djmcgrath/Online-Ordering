@@ -1,28 +1,38 @@
 import {useState, useEffect, React} from 'react'
 
-export default function CartCard({ quantityValue, handlePatch, setQuantityValue, cartItem }) {
+
+export default function CartCard({cartItem, currentCart}) {
   let menuItem = cartItem.menu_item
-  console.log(cartItem.id)
-  const [cquantityValue, setcQuantityValue] = useState(1)
+  const [quantityValue, setQuantityValue] = useState(1)
+  console.log(cartItem.quantity)
 
-   function handleQuantity(quantity = 1){
-    if(quantity === ""){
-      setQuantityValue(1)
-      setcQuantityValue(quantity)
-    }else{
-      setQuantityValue(parseInt(quantity))
-      setcQuantityValue(parseInt(quantity))
+
+  useEffect(()=>{setQuantityValue(cartItem.quantity)}, [])
+
+
+  function handlePatch(cartItemId, newQuantity){
+    let updatedQuantity = newQuantity
+    if(newQuantity === ""){
+      updatedQuantity = 1
     }
-   }
+    console.log(cartItemId)
+    console.log(updatedQuantity)
+    fetch(`/cartmenuitems/${cartItemId}`, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({"quantity": updatedQuantity})
+    })
+    .then(res => res.json())
+    .then(res => {
+      let updatedCart = currentCart.filter((cItem)=> cItem.id !== cartItemId)
+      console.log(updatedCart)
 
-  useEffect(() => {
-    setcQuantityValue(cartItem.quantity)}, [])
+
+    })
+  }
+
 
   return (
-    // <>
-    // <div>{cartItem.menu_item.item_name}</div>
-    // <div>{menuItem.item_name}</div>
-    // </>
     <div id='cards' className="card card-side bg-base-100 shadow-xl mx-2 my-2">
       <figure><img className='height: 1rem; width: 1rem;' src={menuItem.image} alt={menuItem.item_name} /></figure>
       <div className="card-body">
@@ -30,7 +40,7 @@ export default function CartCard({ quantityValue, handlePatch, setQuantityValue,
         <p>{menuItem.description}</p>
         <p>${menuItem.cost}</p>
         <div className="card-actions justify-end">
-          <input type="number" value={cquantityValue} onChange={(e) => {handleQuantity(e.target.value); handlePatch(cartItem.id, e.target.value)}} className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400 width:0.5rem"></input>
+          <input type="number" value={quantityValue} onChange={(e) => { setQuantityValue(e.target.value); handlePatch(cartItem.id, e.target.value) }} className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400 width:0.5rem"></input>
           <button className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400">Remove</button>
         </div>
       </div>
