@@ -2,39 +2,16 @@ import { React, useEffect, useState } from 'react';
 import CartCard from './CartCard';
 
 
-function Cart({ currentId, setCurrentId, currentCart, setCurrentCart }) {
+function Cart({currentId, setCurrentId, currentCart, setCurrentCart}) {
 
-    const [quantityValue, setQuantityValue] = useState(1)
+  let cartList = currentCart.map((cartItem)=> <CartCard key={cartItem.id} cartItem={cartItem} currentCart={currentCart} setCurrentCart={setCurrentCart}/>)
 
-    function handlePatch(cartItemId, qv){
-        console.log(cartItemId)
-        console.log(quantityValue)
-        fetch(`/cartmenuitems/${cartItemId}`, {
-          method: "PATCH",
-          headers: {"Content-Type": "application/json"},
-          body: JSON.stringify({"quantity": qv})
-        })
-        .then(res => res.json())
-        .then(res => console.log(res))
-    }
+  useEffect(() => {
+    fetch(`/carts/${currentId}`)
+    .then(res => res.json())
+    .then(response => setCurrentCart(response.cart_menu_item))
+  }, [])
 
-    console.log(currentCart)
-    let cartList = currentCart.map((cartItem) => <CartCard quantityValue={quantityValue} setQuantityValue={setQuantityValue} handlePatch={handlePatch} key={cartItem.id} cartItem={cartItem} />)
-
-    useEffect(() => {
-        fetch(`/carts/${currentId}`)
-            .then(res => res.json())
-            .then(response => setCurrentCart(response.cart_menu_item))
-    }, [])
-
-
-    function handlePost() {
-        fetch("/carts")
-    }
-
-    console.log(currentCart)
-    console.log(quantityValue)
-    console.log(typeof quantityValue)
 
     return (
         <div>
