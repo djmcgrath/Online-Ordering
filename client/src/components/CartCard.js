@@ -1,11 +1,14 @@
 import {useState, useEffect, React} from 'react'
 
+
 export default function CartCard({cartItem, currentCart}) {
   let menuItem = cartItem.menu_item
-  const [quantityValue, setQuantityValue] = useState(1) 
+  const [quantityValue, setQuantityValue] = useState(1)
   console.log(cartItem.quantity)
 
+
   useEffect(()=>{setQuantityValue(cartItem.quantity)}, [])
+
 
   function handlePatch(cartItemId, newQuantity){
     let updatedQuantity = newQuantity
@@ -24,8 +27,10 @@ export default function CartCard({cartItem, currentCart}) {
       let updatedCart = currentCart.filter((cItem)=> cItem.id !== cartItemId)
       console.log(updatedCart)
 
+
     })
   }
+
 
   return (
     <div id='cards' className="card card-side bg-base-100 shadow-xl mx-2 my-2">

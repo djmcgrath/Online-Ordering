@@ -19,7 +19,6 @@ function Home() {
                         <a href="#slide2" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center justify-self-start transform -translate-y-1/2 left-5 right-5 top-1/4">
-                        <p className='text-6xl text-black font-extrabold'>CHICKEN AND WAFFLES</p>
                     </div>
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">
@@ -30,7 +29,6 @@ function Home() {
                         <a href="#slide3" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center justify-self-start transform -translate-y-1/2 left-5 right-5 top-1/4">
-                        <p className='text-6xl text-black font-extrabold'>CHICKEN AND WAFFLES</p>
                     </div>
                 </div>
                 <div id="slide3" className="carousel-item relative w-full">
@@ -41,7 +39,6 @@ function Home() {
                         <a href="#slide4" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center justify-self-start transform -translate-y-1/2 left-5 right-5 top-1/4">
-                        <p className='text-6xl text-black font-extrabold'>CHICKEN AND WAFFLES</p>
                     </div>
                 </div>
                 <div id="slide4" className="carousel-item relative w-full">
@@ -52,8 +49,34 @@ function Home() {
                         <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center justify-self-start transform -translate-y-1/2 left-5 right-5 top-1/4">
-                        <p className='text-6xl text-black font-extrabold'>CHICKEN AND WAFFLES</p>
                     </div>
+                </div>
+            </div>
+            <div className="collapse collapse-plus bg-base-200 my-2">
+                <input type="radio" name="my-accordion-3" checked="checked" />
+                <div className="collapse-title text-xl font-medium">
+                    Click to open this one and close others
+                </div>
+                <div className="collapse-content">
+                    <p>hello</p>
+                </div>
+            </div>
+            <div className="collapse collapse-plus bg-base-200 my-2">
+                <input type="radio" name="my-accordion-3" />
+                <div className="collapse-title text-xl font-medium">
+                    Click to open this one and close others
+                </div>
+                <div className="collapse-content">
+                    <p>hello</p>
+                </div>
+            </div>
+            <div className="collapse collapse-plus bg-base-200 my-2">
+                <input type="radio" name="my-accordion-3" />
+                <div className="collapse-title text-xl font-medium">
+                    Click to open this one and close others
+                </div>
+                <div className="collapse-content">
+                    <p>hello</p>
                 </div>
             </div>
         </div>

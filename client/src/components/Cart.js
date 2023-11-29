@@ -12,9 +12,15 @@ function Cart({currentId, setCurrentId, currentCart, setCurrentCart}) {
     .then(response => setCurrentCart(response.cart_menu_item))
   }, [])
 
-  return (
-    <div>{cartList}</div>
-  )
+
+    return (
+        <div>
+            <div>
+                <h2 className='text-4xl'>Cart</h2>
+            </div>
+            <div>{cartList}</div>
+        </div>
+    )
 }
 
-export default Cart;
+export default Cart

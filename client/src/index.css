@@ -4,7 +4,7 @@
 
 
 :root {
-  --bg: #282c34;
+  --bg: maroon;
   --header: #fff;
   --link: #61dafb;
   --text: hsla(0, 0%, 100%, 0.88);
@@ -56,4 +56,17 @@ button {
 
 button:hover {
   border-color: #e60c29;
+}
+
+#cards img {
+  height: 181px;
+  width: 182px;
+}
+
+input {
+  width: 3rem;
+}
+
+#cards {
+  height: 182px;
 }
