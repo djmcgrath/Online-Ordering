@@ -9,11 +9,11 @@ function MenuItem({handleAdd, menuItem}) {
 
 
     return(
-        <div tabIndex={0} className="collapse collapse-plus border border-base-300 bg-base-200">
+        <div tabIndex={0} className="collapse collapse-plus border border-base-300 bg-base-200 mx-2 my-3">
             <div className="collapse-title text-2xl font-medium">
                 <div>
                     {menuItem.item_name}
-                    <button className="btn btn-xs" onClick={handleAddToCart}>Add To Cart</button>
+                    <button className="bg-[#1a1a1a] btn btn-xs hover:bg-red-600 justify-center mx-3" onClick={handleAddToCart}>Add To Cart</button>
                 </div>
             </div>
             <div className="collapse-content">

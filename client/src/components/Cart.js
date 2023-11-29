@@ -14,11 +14,11 @@ function Cart({currentId, setCurrentId, currentCart, setCurrentCart}) {
 
 
     return (
-        <div>
-            <div>
+        <div className='bg-inherit'>
+            <div className='bg-inherit'>
                 <h2 className='text-4xl'>Cart</h2>
             </div>
-            <div>{cartList}</div>
+            <div className='bg-inherit'>{cartList}</div>
         </div>
     )
 }

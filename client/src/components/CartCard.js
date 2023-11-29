@@ -41,7 +41,7 @@ export default function CartCard({cartItem, currentCart, setCurrentCart}) {
   }
 
   return (
-    <div id='cards' className="card card-side bg-base-100 shadow-xl mx-2 my-2">
+    <div id='cards' className="card card-side bg-base-100 shadow-xl mx-2 my-3">
       <figure><img className='height: 1rem; width: 1rem;' src={menuItem.image} alt={menuItem.item_name} /></figure>
       <div className="card-body">
         <h2 className="card-title">{menuItem.item_name}</h2>
@@ -49,7 +49,7 @@ export default function CartCard({cartItem, currentCart, setCurrentCart}) {
         <p>${menuItem.cost}</p>
         <div className="card-actions justify-end">
           <input type="number" value={quantityValue} onChange={(e) => { setQuantityValue(e.target.value); handlePatch(cartItem.id, e.target.value) }} className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400 width:0.5rem"></input>
-          <button onClick={(e) => handleDelete(cartItem.id)} className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400">Remove</button>
+          <button onClick={(e) => handleDelete(cartItem.id)} className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:bg-red-600 transition duration-500 text-gray-400">Remove</button>
         </div>
       </div>
     </div>

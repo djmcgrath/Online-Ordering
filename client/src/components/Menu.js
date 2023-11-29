@@ -109,32 +109,32 @@ function Menu({currentId, setCurrentId, currentCart, setCurrentCart, menuItems, 
         </div>
         <div className="carousel w-full">
           <div id="item1" className="carousel-item w-full justify-center">
-            <div className="flex-row flex-grow">
+            <div className="flex-row">
               {appetizersMenuItems}
             </div>
           </div>
           <div id="item2" className="carousel-item w-full justify-center">
-            <div className="flex-row flex-grow">
+            <div className="flex-row">
               {beveragesMenuItems}
             </div>
           </div>
           <div id="item3" className="carousel-item w-full justify-center">
-            <div className="flex-row flex-grow">
+            <div className="flex-row">
               {soupsMenuItems}
             </div>
           </div>
           <div id="item4" className="carousel-item w-full justify-center">
-            <div className="flex-row flex-grow">
+            <div className="flex-row">
               {saladsMenuItems}
             </div>
           </div>
           <div id="item5" className="carousel-item w-full justify-center">
-            <div className="flex-row flex-grow">
+            <div className="flex-row">
               {mainCourseMenuItems}
             </div>
           </div>
           <div id="item6" className="carousel-item w-full justify-center">
-            <div className="flex-row flex-grow">
+            <div className="flex-row">
               {dessertMenuItems}
             </div>
           </div>
