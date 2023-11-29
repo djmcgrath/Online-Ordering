@@ -19,7 +19,6 @@ function Home() {
                         <a href="#slide2" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center justify-self-start transform -translate-y-1/2 left-5 right-5 top-1/4">
-                        <p className='text-6xl text-black font-extrabold'>CHICKEN AND WAFFLES</p>
                     </div>
                 </div>
                 <div id="slide2" className="carousel-item relative w-full">
@@ -30,7 +29,6 @@ function Home() {
                         <a href="#slide3" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center justify-self-start transform -translate-y-1/2 left-5 right-5 top-1/4">
-                        <p className='text-6xl text-black font-extrabold'>CHICKEN AND WAFFLES</p>
                     </div>
                 </div>
                 <div id="slide3" className="carousel-item relative w-full">
@@ -41,7 +39,6 @@ function Home() {
                         <a href="#slide4" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center justify-self-start transform -translate-y-1/2 left-5 right-5 top-1/4">
-                        <p className='text-6xl text-black font-extrabold'>CHICKEN AND WAFFLES</p>
                     </div>
                 </div>
                 <div id="slide4" className="carousel-item relative w-full">
@@ -52,7 +49,6 @@ function Home() {
                         <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center justify-self-start transform -translate-y-1/2 left-5 right-5 top-1/4">
-                        <p className='text-6xl text-black font-extrabold'>CHICKEN AND WAFFLES</p>
                     </div>
                 </div>
             </div>
