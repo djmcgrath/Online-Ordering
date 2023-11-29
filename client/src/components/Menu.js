@@ -96,7 +96,7 @@ function Menu({currentId, setCurrentId, currentCart, setCurrentCart, menuItems, 
   return (
     <>
       <div>
-        <h2 className='text-4xl'>Menu</h2>
+        <h2 className='text-4xl mx-2'>Menu</h2>
       </div>
       <div>
         <div className="flex justify-center w-full py-2 gap-2">

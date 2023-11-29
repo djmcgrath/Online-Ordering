@@ -52,31 +52,48 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className="collapse collapse-plus bg-base-200 my-2">
-                <input type="radio" name="my-accordion-3" checked="checked" />
-                <div className="collapse-title text-xl font-medium">
-                    Click to open this one and close others
+            <div className='flex-row mx-20'>
+                <div tabIndex={0} className="collapse collapse-plus border border-base-300 bg-base-200 mx-2 my-3">
+                    <div className="collapse-title text-2xl font-medium">
+                        <div>
+                            <h2>Locations</h2>
+                        </div>
+                    </div>
+                    <div className="collapse-content">
+                        <div>
+                            <h3>Your Mom's House</h3>
+                        </div>
+                    </div>
                 </div>
-                <div className="collapse-content">
-                    <p>hello</p>
+                <div tabIndex={0} className="collapse collapse-plus border border-base-300 bg-base-200 mx-2 my-3">
+                    <div className="collapse-title text-2xl font-medium">
+                        <div>
+                            <h2>Hours</h2>
+                        </div>
+                    </div>
+                    <div className="collapse-content">
+                        <div>
+                            <h3>Sunday: Closed</h3>
+                            <h3>Monday: Closed</h3>
+                            <h3>Tuesday: Closed</h3>
+                            <h3>Wednesday: 10am - 12pm</h3>
+                            <h3>Thursday: Closed</h3>
+                            <h3>Friday: Closed</h3>
+                            <h3>Saturday: Closed for the Boys</h3>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className="collapse collapse-plus bg-base-200 my-2">
-                <input type="radio" name="my-accordion-3" />
-                <div className="collapse-title text-xl font-medium">
-                    Click to open this one and close others
-                </div>
-                <div className="collapse-content">
-                    <p>hello</p>
-                </div>
-            </div>
-            <div className="collapse collapse-plus bg-base-200 my-2">
-                <input type="radio" name="my-accordion-3" />
-                <div className="collapse-title text-xl font-medium">
-                    Click to open this one and close others
-                </div>
-                <div className="collapse-content">
-                    <p>hello</p>
+                <div tabIndex={0} className="collapse collapse-plus border border-base-300 bg-base-200 mx-2 my-3">
+                    <div className="collapse-title text-2xl font-medium">
+                        <div>
+                            <h2>Contact Us</h2>
+                        </div>
+                    </div>
+                    <div className="collapse-content">
+                        <div>
+                            <p></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

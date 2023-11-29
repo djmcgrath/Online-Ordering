@@ -18,6 +18,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  max-height: 1000%;
+  
 }
 h1 {
   color: var(--header);
@@ -74,4 +76,8 @@ input {
 
 #cards {
   height: 185px;
+}
+
+h2 {
+  color: var(--text);
 }
