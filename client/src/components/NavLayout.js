@@ -6,8 +6,7 @@ export default function NavLayout() {
         <div>
             <header>
                 <h1>Online Ordering</h1>
-                <div className='flex align-center'>
-                <nav className='flex align-center'>
+                <nav className=' flex align-center my-2'>
                     <NavLink to='/' className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400" >Home</NavLink>
                     <NavLink to='Menu' className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400" >Menu</NavLink>
                     <NavLink to='Cart' className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500" >
@@ -16,7 +15,6 @@ export default function NavLayout() {
                         </svg>
                     </NavLink>
                 </nav>
-                </div>
             </header>
             <main>
                 <Outlet />
