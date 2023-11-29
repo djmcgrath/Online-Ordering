@@ -10,22 +10,58 @@ function Menu({currentId, setCurrentId, currentCart, setCurrentCart, menuItems, 
     fetch(`/carts/${currentId}`)
     .then(res => res.json())
     .then(response => setCurrentCart(response.cart_menu_item))
-  }, [])
+  }, [currentCart.length])
 
-  function handlePost(menuItemId) {
+
+  console.log(currentCart)
+  // handleAdd()
+  function handleAdd(menuItemId){
+    let cartItemIds = currentCart.map((cartItem) => cartItem.menu_item_id)
+    if(!cartItemIds.includes(menuItemId)){
+      handlePost(menuItemId)
+    }else{
+      let cartItem = currentCart.find((cartItem) => cartItem.menu_item_id == menuItemId)
+      console.log(cartItem)
+      let newQuantity = cartItem.quantity + 1
+      console.log(newQuantity)
+      handlePatch(cartItem.id, newQuantity)
+    }
+  }
+
+  function handlePatch(cartItemId, newQuantity){
+    fetch(`/cartmenuitems/${cartItemId}`, {
+      method: "PATCH",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({"quantity": newQuantity})
+    })
+    .then(res => res.json())
+    .then(res => {
+      console.log(res);
+      let updatedCart = [...currentCart]
+      console.log(updatedCart[cartItemId-1].quantity)
+      updatedCart[cartItemId-1].quantity = res.quantity
+      console.log(updatedCart[cartItemId-1].quantity)
+      setCurrentCart = updatedCart
+      console.log(currentCart)
+    })
+  }
+
+  function handlePost(menuItemId, quantity = 1) {
     let addToCart = {
       "cart_id": currentId,
-      'quantity': 1,
+      'quantity': quantity,
       "menu_item_id": menuItemId
       }
-
     fetch("/cartmenuitems", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(addToCart)
     })
     .then(res => res.json())
-    .then(res => console.log(res))
+    .then(res => {
+      console.log(res);
+      setCurrentCart([...currentCart, addToCart])
+    })
   }
 
   useEffect(()=>{
@@ -37,22 +73,22 @@ function Menu({currentId, setCurrentId, currentCart, setCurrentCart, menuItems, 
   let menuItemsList = menuItems.map((menuItem)=> <MenuItem key={menuItem.id} menuItem={menuItem}/>)
 
   let dessertMenuItemsList = menuItems.filter((menuItem)=> menuItem.item_category === "Desserts")
-  let dessertMenuItems = dessertMenuItemsList.map((menuItem)=> <MenuItem key={menuItem.id} handlePost={handlePost} menuItem={menuItem}/>)
+  let dessertMenuItems = dessertMenuItemsList.map((menuItem)=> <MenuItem key={menuItem.id} handleAdd={handleAdd} menuItem={menuItem}/>)
 
   let appetizersMenuItemsList = menuItems.filter((menuItem)=> menuItem.item_category === "Appetizers")
-  let appetizersMenuItems = appetizersMenuItemsList.map((menuItem)=> <MenuItem key={menuItem.id} handlePost={handlePost} menuItem={menuItem}/>)
+  let appetizersMenuItems = appetizersMenuItemsList.map((menuItem)=> <MenuItem key={menuItem.id} handleAdd={handleAdd} menuItem={menuItem}/>)
 
   let mainCourseMenuItemsList = menuItems.filter((menuItem)=> menuItem.item_category === "Main Course")
-  let mainCourseMenuItems = mainCourseMenuItemsList.map((menuItem)=> <MenuItem key={menuItem.id} handlePost={handlePost} menuItem={menuItem}/>)
+  let mainCourseMenuItems = mainCourseMenuItemsList.map((menuItem)=> <MenuItem key={menuItem.id} handleAdd={handleAdd} menuItem={menuItem}/>)
 
   let saladsMenuItemsList = menuItems.filter((menuItem)=> menuItem.item_category === "Salads")
-  let saladsMenuItems = saladsMenuItemsList.map((menuItem)=> <MenuItem key={menuItem.id} handlePost={handlePost} menuItem={menuItem}/>)
+  let saladsMenuItems = saladsMenuItemsList.map((menuItem)=> <MenuItem key={menuItem.id} handleAdd={handleAdd} menuItem={menuItem}/>)
 
   let soupsMenuItemsList = menuItems.filter((menuItem)=> menuItem.item_category === "Soups")
-  let soupsMenuItems = soupsMenuItemsList.map((menuItem)=> <MenuItem key={menuItem.id} handlePost={handlePost} menuItem={menuItem}/>)
+  let soupsMenuItems = soupsMenuItemsList.map((menuItem)=> <MenuItem key={menuItem.id} handleAdd={handleAdd} menuItem={menuItem}/>)
 
   let beveragesMenuItemsList = menuItems.filter((menuItem)=> menuItem.item_category === "Beverages")
-  let beveragesMenuItems = beveragesMenuItemsList.map((menuItem)=> <MenuItem key={menuItem.id} handlePost={handlePost} menuItem={menuItem}/>)
+  let beveragesMenuItems = beveragesMenuItemsList.map((menuItem)=> <MenuItem key={menuItem.id} handleAdd={handleAdd} menuItem={menuItem}/>)
   
   // console.log(filteredMenuItems)
   // console.log(cCatagory)
