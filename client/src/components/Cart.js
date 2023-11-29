@@ -12,12 +12,6 @@ function Cart({currentId, setCurrentId, currentCart, setCurrentCart}) {
     .then(response => setCurrentCart(response.cart_menu_item))
   }, [])
 
-  function handlePost() {
-    fetch("/carts")
-  }
-
-  console.log(currentCart)
-
   return (
     <div>{cartList}</div>
   )
