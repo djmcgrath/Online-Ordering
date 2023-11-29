@@ -4,7 +4,7 @@ import CartCard from './CartCard';
 
 function Cart({currentId, setCurrentId, currentCart, setCurrentCart}) {
 
-  let cartList = currentCart.map((cartItem)=> <CartCard key={cartItem.id} cartItem={cartItem} currentCart={currentCart}/>)
+  let cartList = currentCart.map((cartItem)=> <CartCard key={cartItem.id} cartItem={cartItem} currentCart={currentCart} setCurrentCart={setCurrentCart}/>)
 
   useEffect(() => {
     fetch(`/carts/${currentId}`)
