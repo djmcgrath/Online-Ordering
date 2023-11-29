@@ -5,8 +5,12 @@ from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
 
 metadata = MetaData(naming_convention={
-    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
-})
+        "ix": "ix_%(column_0_label)s",
+        "uq": "uq_%(table_name)s_%(column_0_name)s",
+        "ck": "ck_%(table_name)s_`%(constraint_name)s`",
+        "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
+        "pk": "pk_%(table_name)s"
+      })
 
 db = SQLAlchemy(metadata=metadata)
 
@@ -68,6 +72,7 @@ class CartMenuItem(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     menu_item_id = db.Column(db.Integer, db.ForeignKey("menu_item_table.id"), nullable=True)
     menu_item = db.relationship("MenuItem", back_populates="cart_menu_item")
+    quantity = db.Column(db.Integer)
     cart_id = db.Column(db.Integer, db.ForeignKey("cart_table.id"), nullable=True)
     cart = db.relationship("Cart", back_populates="cart_menu_item")
 
@@ -79,7 +84,7 @@ class CartMenuItem(db.Model, SerializerMixin):
 class Cart(db.Model, SerializerMixin):
     __tablename__= "cart_table"
     id = db.Column(db.Integer, primary_key=True)
-    cart_menu_item = db.relationship("CartMenuItem", back_populates="cart")
+    cart_menu_item = db.relationship("CartMenuItem", back_populates="cart", cascade="delete")
     customer_id = db.Column(db.Integer, db.ForeignKey("customer_table.id"), nullable=True)
     customer = db.relationship("Customer", back_populates="cart")
     created_at = db.Column(db.DateTime, server_default=db.func.now())

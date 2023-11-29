@@ -162,6 +162,7 @@ class CartMenuItems(Resource):
         try:
             new_cart_menu_item = CartMenuItem(
                 menu_item_id = data["menu_item_id"],
+                quantity = data["quantity"],
                 cart_id = data["cart_id"]
             )
             db.session.add(new_cart_menu_item)
@@ -173,6 +174,41 @@ class CartMenuItems(Resource):
             return {"errors": ["validation errors"]}, 400
         
 api.add_resource(CartMenuItems, "/cartmenuitems")
+    
+
+class CartMenuItemByID(Resource):
+    def get(self, id):
+        cartMenuItem = CartMenuItem.query.filter_by(id = id).first()
+        if not cartMenuItem:
+            return {"error": "Cart not found"}, 404
+        return cartMenuItem.to_dict(rules = ("-customer",)), 200
+    
+    def patch(self, id):
+        cartMenuItem = CartMenuItem.query.filter_by(id = id).first()
+        if not cartMenuItem:
+            return {"error": "cart not found"}, 404
+
+        try:
+            data = request.get_json()
+            for key in data:
+                setattr(cartMenuItem, key, data[key])
+            db.session.commit()
+            return cartMenuItem.to_dict(rules = ("-customer",)), 200
+        
+        except ValueError as e:
+            print(e.__str__())
+            return {"errors": ["validation errors"]}, 400
+
+    def delete(self, id):
+        cartMenuItem = CartMenuItem.query.filter_by(id = id).first()
+        if not cartMenuItem:
+            return {"error": "Cart not found"}, 404
+        db.session.delete(cartMenuItem)
+        db.session.commit()
+
+        return "", 204
+    
+api.add_resource(CartMenuItemByID, "/cartmenuitems/<int:id>")
 
 class Customers(Resource):
     def get(self):
@@ -192,6 +228,8 @@ class Customers(Resource):
         except ValueError as e:
             print(e.__str__())
             return {"errors": ["validation errors"]}, 400
+
+
 
 api.add_resource(Customers, "/customers")
 

@@ -51,6 +51,13 @@ def seed_customers():
         customers.append(c)
     return customers
 
+def seed_cart():
+    carts = []
+    cart = Cart(
+        customer_id = 1
+    )
+    carts.append(cart)
+    return carts
 
 
 if __name__ == '__main__':
@@ -68,6 +75,10 @@ if __name__ == '__main__':
             Customer.query.delete()
         except:
             print("No Customers")
+        try:
+            Cart.query.delete()
+        except:
+            print("No Carts")
 
         # Seed code goes here!
         print("Seeding ingredients...")
@@ -85,4 +96,8 @@ if __name__ == '__main__':
         db.session.add_all(customers)
         db.session.commit()
 
+        print("Seeding cart...")
+        carts = seed_cart()
+        db.session.add_all(carts)
+        db.session.commit()
         print("Done seeding!")
