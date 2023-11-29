@@ -36,7 +36,7 @@ def seed_menu_items():
             item_name = row["item_name"],
             description = row["description"],
             item_category = row["item_category"],
-            # image = row["image"],
+            image = row["image"],
             cost = row["cost"]
         )
         menu_items.append(m)
