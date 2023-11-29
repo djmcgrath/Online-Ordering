@@ -1,8 +1,8 @@
-"""empty message
+"""re init
 
-Revision ID: da2c25e324a7
+Revision ID: fe87b88c045c
 Revises: 
-Create Date: 2023-11-28 13:45:02.747033
+Create Date: 2023-11-29 09:55:47.337596
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'da2c25e324a7'
+revision = 'fe87b88c045c'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -23,12 +23,12 @@ def upgrade():
     sa.Column('customer_name', sa.String(), nullable=True),
     sa.Column('created_at', sa.DateTime(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('updated_at', sa.DateTime(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id', name=op.f('pk_customer_table'))
     )
     op.create_table('ingredient_table',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('ingredient_name', sa.String(), nullable=True),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id', name=op.f('pk_ingredient_table'))
     )
     op.create_table('menu_item_table',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -36,7 +36,7 @@ def upgrade():
     sa.Column('description', sa.String(), nullable=True),
     sa.Column('item_category', sa.String(), nullable=True),
     sa.Column('cost', sa.Float(), nullable=True),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id', name=op.f('pk_menu_item_table'))
     )
     op.create_table('cart_table',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -44,7 +44,7 @@ def upgrade():
     sa.Column('created_at', sa.DateTime(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.Column('updated_at', sa.DateTime(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
     sa.ForeignKeyConstraint(['customer_id'], ['customer_table.id'], name=op.f('fk_cart_table_customer_id_customer_table')),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id', name=op.f('pk_cart_table'))
     )
     op.create_table('menu_item_ingredients_table',
     sa.Column('id', sa.Integer(), nullable=False),
@@ -52,15 +52,16 @@ def upgrade():
     sa.Column('menu_item_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['ingredient_id'], ['ingredient_table.id'], name=op.f('fk_menu_item_ingredients_table_ingredient_id_ingredient_table')),
     sa.ForeignKeyConstraint(['menu_item_id'], ['menu_item_table.id'], name=op.f('fk_menu_item_ingredients_table_menu_item_id_menu_item_table')),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id', name=op.f('pk_menu_item_ingredients_table'))
     )
     op.create_table('cart_menu_item',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('menu_item_id', sa.Integer(), nullable=True),
+    sa.Column('quantity', sa.Integer(), nullable=True),
     sa.Column('cart_id', sa.Integer(), nullable=True),
     sa.ForeignKeyConstraint(['cart_id'], ['cart_table.id'], name=op.f('fk_cart_menu_item_cart_id_cart_table')),
     sa.ForeignKeyConstraint(['menu_item_id'], ['menu_item_table.id'], name=op.f('fk_cart_menu_item_menu_item_id_menu_item_table')),
-    sa.PrimaryKeyConstraint('id')
+    sa.PrimaryKeyConstraint('id', name=op.f('pk_cart_menu_item'))
     )
     # ### end Alembic commands ###
 

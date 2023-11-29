@@ -14,7 +14,8 @@ function Menu({currentId, setCurrentId, currentCart, setCurrentCart, menuItems, 
 
   function handlePost(menuItemId) {
     let addToCart = {
-      "cart_id": currentId, 
+      "cart_id": currentId,
+      'quantity': 1,
       "menu_item_id": menuItemId
       }
 
