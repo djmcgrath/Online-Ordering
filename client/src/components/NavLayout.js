@@ -5,7 +5,7 @@ export default function NavLayout({currentCart, user, setUser}) {
 
     function sumQuantity(array) {
         let sum = 0;
-        if(currentCart){
+        if(array){
             for (let i = 0; i < array.length; i += 1) {
                 sum += array[i].quantity
             }

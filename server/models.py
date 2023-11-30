@@ -122,6 +122,7 @@ class Customer(db.Model, SerializerMixin):
     def validate_email(self, key, email):
         if not email:
             raise ValueError("Email must be valid.")
+        return email
         
     
     serialize_rules = ('-cart.customer',)
