@@ -28,6 +28,8 @@ export default function NavLayout({currentCart}) {
                             </svg>
                         </NavLink>
                     </div>
+                    <NavLink to='login' className="mx-0.5 bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400" >Login</NavLink>
+                    <NavLink to='signup' className="mx-0.5 bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400" >Signup</NavLink>
                 </nav>
             </header>
             <main>
