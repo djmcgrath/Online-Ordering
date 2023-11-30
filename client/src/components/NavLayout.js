@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 
-export default function NavLayout({currentCart}) {
+export default function NavLayout({currentCart, user, setUser}) {
 
     function sumQuantity(array) {
         let sum = 0;
@@ -12,6 +12,18 @@ export default function NavLayout({currentCart}) {
         return sum;
       }
 
+    function handleLogOut(){
+        fetch("/logout", {
+            method: "DELETE"
+        })
+        .then(setUser(null))
+        .then(alert("Singed Out"))
+    }
+
+
+    let login = !user ? <NavLink to='login' className="mx-0.5 bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400" >Log In</NavLink> : null
+    let signup = !user ? <NavLink to='signup' className="mx-0.5 bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400" >Sign Up</NavLink> : null
+    let logout = user ? <button onClick={handleLogOut} className="mx-0.5 bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400" >Log Out</button> : null
 
     return (
         <div>
@@ -28,8 +40,9 @@ export default function NavLayout({currentCart}) {
                             </svg>
                         </NavLink>
                     </div>
-                    <NavLink to='login' className="mx-0.5 bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400" >Login</NavLink>
-                    <NavLink to='signup' className="mx-0.5 bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400" >Signup</NavLink>
+                    {login}
+                    {signup}
+                    {logout}
                 </nav>
             </header>
             <main>
