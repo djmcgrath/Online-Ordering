@@ -25,7 +25,7 @@ function Home() {
                     <img src="https://hips.hearstapps.com/hmg-prod/images/chicken-fajitas-index-649de79db2265.jpg" className="w-full" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide1" className="btn btn-circle">❮</a>
-                        <btn className="btn btn-wide btn-lg">View Menu</btn>
+                        <btn className="btn btn-wide btn-lg" onClick={goToMenu}>View Menu</btn>
                         <a href="#slide3" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center justify-self-start transform -translate-y-1/2 left-5 right-5 top-1/4">
@@ -35,7 +35,7 @@ function Home() {
                     <img src="https://www.spam.com/wp-content/uploads/2020/09/HORMEL_SPAM_carbonara_02.jpg" className="w-full" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide2" className="btn btn-circle">❮</a>
-                        <btn className="btn btn-wide btn-lg">View Menu</btn>
+                        <btn className="btn btn-wide btn-lg" onClick={goToMenu}>View Menu</btn>
                         <a href="#slide4" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center justify-self-start transform -translate-y-1/2 left-5 right-5 top-1/4">
@@ -45,7 +45,7 @@ function Home() {
                     <img src="https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/pwvjxysa/5add9384-9299-4060-84b7-5cb88d2dd40a" className="w-full" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                         <a href="#slide3" className="btn btn-circle">❮</a>
-                        <btn className="btn btn-wide btn-lg">View Menu</btn>
+                        <btn className="btn btn-wide btn-lg" onClick={goToMenu}>View Menu</btn>
                         <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
                     <div className="absolute flex justify-center justify-self-start transform -translate-y-1/2 left-5 right-5 top-1/4">
