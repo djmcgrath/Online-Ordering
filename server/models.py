@@ -3,6 +3,10 @@ from sqlalchemy import MetaData
 from sqlalchemy.orm import validates
 from sqlalchemy_serializer import SerializerMixin
 from sqlalchemy.ext.associationproxy import association_proxy
+from sqlalchemy.ext.hybrid import hybrid_property
+from flask_bcrypt import Bcrypt
+
+bcrypt = Bcrypt()
 
 metadata = MetaData(naming_convention={
         "ix": "ix_%(column_0_label)s",
@@ -106,12 +110,39 @@ class Customer(db.Model, SerializerMixin):
     __tablename__= "customer_table"
     id = db.Column(db.Integer, primary_key=True)
     customer_name = db.Column(db.String)
+    username = db.Column(db.String, unique=True, nullable=False)
+    email = db.Column(db.String, unique=True, nullable=False)
+    _password_hash = db.Column(db.String)
     cart = db.relationship("Cart", back_populates="customer")
     # allergies = db.Column(db.String)
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, server_default=db.func.now())
 
+    @validates("email")
+    def validate_email(self, key, email):
+        if not email:
+            raise ValueError("Email must be valid.")
+        
+    
     serialize_rules = ('-cart.customer',)
+
+    @hybrid_property
+    def password_hash(self):
+        raise AttributeError('Password hashes may not be viewed.')
+    
+    @password_hash.setter
+    def password_hash(self, password):
+        password_hash = bcrypt.generate_password_hash(
+            password.encode('utf-8'))
+        self._password_hash = password_hash.decode('utf-8')
+
+    def authenticate(self, password):
+        return bcrypt.check_password_hash(
+            self._password_hash, password.encode('utf-8'))
+
+    
+
+
 
     def __repr__(self):
         return f'<Customer {self.id}>'

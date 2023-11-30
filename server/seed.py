@@ -7,7 +7,7 @@ import pandas as pd
 
 # Load the CSV data into a DataFrame
 food_menu_items = pd.read_csv("CSV_Data/Food_Menu_Items.csv")
-print(food_menu_items)
+# print(food_menu_items)
 
 # Remote library imports
 from faker import Faker
@@ -44,11 +44,26 @@ def seed_menu_items():
 
 def seed_customers():
     customers = []
-    for _ in range(10):
-        c = Customer(
-            customer_name=fake.name(),
-        )
-        customers.append(c)
+    dane_password = "dane_password"
+    dane = Customer(
+        customer_name="Dane Palazzo",
+        username= "DDP",
+        email= "DP@gmail.com"
+    )
+    dane.password_hash = dane_password
+    customers.append(dane)
+    # for _ in range(5):
+    #     customer_name = fake.name(),
+    #     username = fake.user_name(),
+    #     email = fake.free_email(),
+    #     password = username+"password"
+    #     c = Customer(
+    #         customer_name=customer_name,
+    #         username=username,
+    #         email=email
+    #     )
+        # c.password_hash = password
+        # customers.append(c)
     return customers
 
 def seed_cart():

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-from flask import Flask, abort, request
+from flask import Flask, abort, request, session
 from flask_migrate import Migrate
 from flask_restful import Api, Resource
+from sqlalchemy.exc import IntegrityError
 
 from models import *
 
@@ -16,11 +17,21 @@ db.init_app(app)
 
 api = Api(app)
 
+app.secret_key = b"\xb2\xc3vb\x1a\xd1\xe7 \xfdS\xda$'\x8e\xbc\xce"
+
+
 
 # Views go here!
 @app.route('/')
 def index():
     return '<h1>Project Server</h1>'
+
+@app.before_request
+def check_if_logged_in():
+    restricted_access_list = []
+    if (request.endpoint) in restricted_access_list and (not session.get('user_id')):
+        return {'error': '401 Unauthorized'}, 401
+
 
 class Ingredients(Resource):
     def get(self):
@@ -213,22 +224,8 @@ api.add_resource(CartMenuItemByID, "/cartmenuitems/<int:id>")
 
 class Customers(Resource):
     def get(self):
-        customers_list = [customers.to_dict(rules = ("-cart",)) for customers in Customer.query.all()]
+        customers_list = [customers.to_dict(rules = ("-cart", )) for customers in Customer.query.all()]
         return customers_list, 200
-    
-    def post(self):
-        data = request.get_json()
-        try:
-            new_customer = Customer(
-                customer_name = data["customer_name"]
-            )
-            db.session.add(new_customer)
-            db.session.commit()
-            return new_customer.to_dict(rules = ("-cart",)), 200
-        
-        except ValueError as e:
-            print(e.__str__())
-            return {"errors": ["validation errors"]}, 400
 
 
 
@@ -268,7 +265,76 @@ class CustomerById(Resource):
 
 api.add_resource(CustomerById, "/customers/<int:id>")
 
+# Authorization----------------------------------------------------------------------
+class CustomerSignUp(Resource):
+    def post(self):
+        data = request.get_json()
+        username = data.get('username')
+        email = data.get('email')
+        password = data.get('password')
+        customer_name = data.get("customer_name")
+        try:
+            new_user = Customer(
+                username = username,
+                email = email,
+                customer_name = customer_name
+                )
+            try:
+                print("Trying hash")
+                new_user.password_hash = password
+                print("Adding user to session...")
+                db.session.add(new_user)
+                print("Commiting session...")
+                print(new_user)
+                db.session.commit()
 
+                session['user_id'] = new_user.id
+
+                return new_user.to_dict(rules = ("-cart",)), 200
+            except IntegrityError:
+                return {'error': '422 Unprocessable Entity'}, 422
+        except ValueError as e:
+            print(e.__str__())
+            return {"errors": ["validation errors"]}, 400
+
+api.add_resource(CustomerSignUp, "/signup")
+
+class CheckSession(Resource):
+    def get(self):
+        
+        user_id = session.get('user_id')
+        if user_id:
+            user = Customer.query.filter(Customer.id == user_id).first()
+            return user.to_dict(rules = ("-cart", )), 200
+        
+        return {}, 401
+
+api.add_resource(CheckSession, "/checksession")
+
+class Login(Resource):
+    def post(self):
+        request_json = request.get_json()
+        username = request_json.get('username')
+        email = request_json.get('email')
+        password = request_json.get('password')
+        if email:
+            user = Customer.query.filter(Customer.email == email).first()
+        if username:
+            user = Customer.query.filter(Customer.username == username).first()
+        if user and user.authenticate(password):
+            session['user_id'] = user.id
+            return user.to_dict(rules = ("-cart", )), 200
+        
+        return {'error': '401 Unauthorized'}, 401
+
+api.add_resource(Login, "/login")
+
+class Logout(Resource):
+    def delete(self):
+        session['user_id'] = None
+        return {}, 204
+
+api.add_resource(Logout, "/logout")
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
