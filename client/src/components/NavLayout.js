@@ -5,11 +5,14 @@ export default function NavLayout({currentCart, user, setUser}) {
 
     function sumQuantity(array) {
         let sum = 0;
-    
-        for (let i = 0; i < array.length; i += 1) {
-            sum += array[i].quantity
+        if(currentCart){
+            for (let i = 0; i < array.length; i += 1) {
+                sum += array[i].quantity
+            }
+            return sum;
+        }else{
+            return 0
         }
-        return sum;
       }
 
     function handleLogOut(){

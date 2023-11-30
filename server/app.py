@@ -224,7 +224,7 @@ api.add_resource(CartMenuItemByID, "/cartmenuitems/<int:id>")
 
 class Customers(Resource):
     def get(self):
-        customers_list = [customers.to_dict(rules = ("-cart", )) for customers in Customer.query.all()]
+        customers_list = [customers.to_dict(rules =("-_password_hash", "-cart.cart_menu_item")) for customers in Customer.query.all()]
         return customers_list, 200
 
 

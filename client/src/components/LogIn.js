@@ -1,7 +1,7 @@
 import {useState, React} from 'react'
 import { useNavigate } from 'react-router-dom'
 
-function LogIn({user, setUser}) {
+function LogIn({user, setUser, setCurrentId, setCurrentCart}) {
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -27,7 +27,29 @@ function LogIn({user, setUser}) {
         .then(res => res.json())
         .then(res => {
             setUser(res)
+            handleCheckCreateCart(res.id)
             navigate("/")
+        })
+    }
+
+    function handleCheckCreateCart(customerId){
+        let existingCart = null
+        fetch("/carts")
+        .then(res => res.json())
+        .then(carts => {
+            existingCart = carts.find((cart) => cart.customer_id === customerId)
+            if(!existingCart){
+                fetch("/carts", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({"customer_id": parseInt(customerId)})
+                })
+                .then(newCart => {
+                    setCurrentId(newCart.id);
+                });
+            }else{
+                setCurrentId(existingCart.cart.id)
+            }
         })
     }
 
