@@ -44,13 +44,23 @@ function LogIn({user, setUser, setCurrentId, setCurrentCart}) {
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({"customer_id": parseInt(customerId)})
                 })
+                .then(res => res.json())
                 .then(newCart => {
+                    console.log(newCart.id)
                     setCurrentId(newCart.id);
+                    handleFetchCart(newCart.id)
                 });
             }else{
-                setCurrentId(existingCart.cart.id)
+                console.log(existingCart.id)
+                setCurrentId(existingCart.id)
+                handleFetchCart(existingCart.id)
             }
         })
+    }
+    function handleFetchCart(ncurrentID){
+        fetch(`/carts/${ncurrentID}`)
+      .then(res => res.json())
+      .then(response => setCurrentCart(response.cart_menu_item))
     }
 
   return (
@@ -84,7 +94,7 @@ function LogIn({user, setUser, setCurrentId, setCurrentCart}) {
                 ></input>
             </form>
         </div>
-        <button type="submit" className='flex flex-row border border-base-300 bg-[#1a1a1a] rounded-xl p-3 text-gray-400 items-center mx-auto my-3 w-64 hover:border-2  hover:border-red-600 transition duration-500'>Sign In</button>
+        <button onClick={(e) => handleLogIn(e)} type="submit" className='flex flex-row border border-base-300 bg-[#1a1a1a] rounded-xl p-3 text-gray-400 items-center mx-auto my-3 w-64 hover:border-2  hover:border-red-600 transition duration-500'>Sign In</button>
 
         <button onClick={goToSignUp} className='flex flex-row border border-base-300 items-center mx-auto my-3 w-64 hover:border-2  hover:border-red-600 transition duration-500'>Sign Up?</button>
     </div>

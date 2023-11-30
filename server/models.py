@@ -123,6 +123,10 @@ class Customer(db.Model, SerializerMixin):
         if not email:
             raise ValueError("Email must be valid.")
         return email
+<<<<<<< HEAD
+=======
+        
+>>>>>>> Dane
     
     serialize_rules = ('-cart.customer',)
 

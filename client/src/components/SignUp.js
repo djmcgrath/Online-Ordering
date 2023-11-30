@@ -103,7 +103,7 @@ function SignUp({user, setUser}) {
                   </div>
               </form>
           </div>
-          <button type="submit" className='flex flex-row border border-base-300 bg-[#1a1a1a] rounded-xl p-3 text-gray-400 items-center mx-auto my-3 w-64 hover:border-2  hover:border-red-600 transition duration-500'>Sign Up</button>
+          <button onClick={(e) => handleSignUp(e)} type="submit" className='flex flex-row border border-base-300 bg-[#1a1a1a] rounded-xl p-3 text-gray-400 items-center mx-auto my-3 w-64 hover:border-2  hover:border-red-600 transition duration-500'>Sign Up</button>
         <button className='flex flex-row border border-base-300 bg-[#1a1a1a] rounded-xl p-3 text-gray-400 items-center mx-auto my-3 w-64 hover:border-2  hover:border-red-600 transition duration-500' onClick={goToLogIn}>Log In?</button>
     </div>
   )
