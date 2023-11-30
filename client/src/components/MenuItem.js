@@ -1,10 +1,20 @@
-import React from 'react'
+import {useState, React} from 'react'
 
-function MenuItem({handleAdd, menuItem}) {
+function MenuItem({handleAdd, menuItem, currentId, setShowPopup}) {
 
+    // function handleAddToCart(){
+    //     console.log(menuItem.id)
+    //     handleAdd(menuItem.id)
+    // }
+
+    //Test multiple carts
     function handleAddToCart(){
-        console.log(menuItem.id)
-        handleAdd(menuItem.id)
+        if(!currentId){
+            setShowPopup(true)
+        }else{
+            console.log(menuItem.id)
+            handleAdd(menuItem.id)
+        }
     }
 
 

@@ -4,29 +4,31 @@ import CartCard from './CartCard';
 
 function Cart({currentId, setCurrentId, currentCart, setCurrentCart}) {
 
-  let cartList = currentCart.map((cartItem)=> <CartCard key={cartItem.id} cartItem={cartItem} currentCart={currentCart} setCurrentCart={setCurrentCart}/>)
+  let cartList
+
+  cartList = currentCart.map((cartItem)=> <CartCard key={cartItem.id} cartItem={cartItem} currentCart={currentCart} setCurrentCart={setCurrentCart}/>)
+
+  console.log(currentCart)
 
   function sumCost(array) {
     let sum = 0;
-
     for (let i = 0; i < array.length; i += 1) {
-        if (array[i].quantity === 1) {
-            sum += array[i].menu_item.cost
-        }
-        else{
-            sum += (array[i].menu_item.cost * array[i].quantity)
-        }
+      if (array[i].quantity === 1) {
+          sum += array[i].menu_item.cost
+      }
+      else{
+          sum += (array[i].menu_item.cost * array[i].quantity)
+      }
     }
-
     return sum;
   }
 
 
-  useEffect(() => {
-    fetch(`/carts/${currentId}`)
-    .then(res => res.json())
-    .then(response => setCurrentCart(response.cart_menu_item))
-  }, [])
+  // useEffect(() => {
+  //   fetch(`/carts/${currentId}`)
+  //   .then(res => res.json())
+  //   .then(response => setCurrentCart(response.cart_menu_item))
+  // }, [])
 
 
     return (
