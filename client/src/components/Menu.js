@@ -41,7 +41,7 @@ function Menu({currentId, setCurrentId, currentCart, setCurrentCart, menuItems, 
       console.log(updatedCart[cartItemId-1].quantity)
       updatedCart[cartItemId-1].quantity = res.quantity
       console.log(updatedCart[cartItemId-1].quantity)
-      setCurrentCart = updatedCart
+      setCurrentCart(updatedCart)
       console.log(currentCart)
     })
   }
