@@ -290,7 +290,7 @@ class CustomerSignUp(Resource):
 
                 session['user_id'] = new_user.id
 
-                return new_user.to_dict(rules = ("-cart",)), 200
+                return new_user.to_dict(rules = ("-cart.customer",)), 200
             except IntegrityError:
                 return {'error': '422 Unprocessable Entity'}, 422
         except ValueError as e:

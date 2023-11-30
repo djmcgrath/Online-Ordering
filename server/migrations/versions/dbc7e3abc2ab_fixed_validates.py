@@ -1,8 +1,8 @@
-"""added auth
+"""fixed validates
 
-Revision ID: 6fc1a3a85f7c
+Revision ID: dbc7e3abc2ab
 Revises: 
-Create Date: 2023-11-29 21:29:48.462101
+Create Date: 2023-11-30 04:53:11.649148
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '6fc1a3a85f7c'
+revision = 'dbc7e3abc2ab'
 down_revision = None
 branch_labels = None
 depends_on = None

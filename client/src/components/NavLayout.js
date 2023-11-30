@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 
-export default function NavLayout({currentCart, user, setUser}) {
+export default function NavLayout({currentCart, user, setUser, currentId, setCurrentId, setCurrentCart}) {
 
     function sumQuantity(array) {
         let sum = 0;
@@ -19,10 +19,17 @@ export default function NavLayout({currentCart, user, setUser}) {
         fetch("/logout", {
             method: "DELETE"
         })
-        .then(setUser(null))
-        .then(alert("Singed Out"))
+        .then(res => {
+            setUser(null); 
+            setCurrentId(null);
+            setCurrentCart([]);
+        })
+        .then(res =>{
+            alert("Singed Out")
+        })
     }
-
+    console.log(user)
+    console.log(currentId)
 
     let login = !user ? <NavLink to='login' className="mx-0.5 bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400" >Log In</NavLink> : null
     let signup = !user ? <NavLink to='signup' className="mx-0.5 bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400" >Sign Up</NavLink> : null
