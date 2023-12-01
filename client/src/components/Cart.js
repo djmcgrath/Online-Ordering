@@ -24,11 +24,13 @@ function Cart({currentId, setCurrentId, currentCart, setCurrentCart}) {
   }
 
 
-  // useEffect(() => {
-  //   fetch(`/carts/${currentId}`)
-  //   .then(res => res.json())
-  //   .then(response => setCurrentCart(response.cart_menu_item))
-  // }, [])
+  useEffect(() => {
+    if(currentId !== null){
+      fetch(`/carts/${currentId}`)
+      .then(res => res.json())
+      .then(response => setCurrentCart(response.cart_menu_item))
+    }
+  }, [])
 
 
     return (
