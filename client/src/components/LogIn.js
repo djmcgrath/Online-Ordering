@@ -32,8 +32,8 @@ function LogIn({user, setUser}) {
     }
 
   return (
-    <div className="border border-base-300 bg-base-200 rounded-xl p-3 mx-80 my-10">
-        <h1 className="flex flex-row border border-base-300 bg-base-200 rounded-xl p-3 mx-72">Login</h1>
+    <div className="flex flex-col border border-base-300 bg-base-200 rounded-xl p-3 w-2/4 mx-auto my-10">
+        <h1 className="flex flex-row mx-auto my-3">Login</h1>
         <div className="flex flex-col">
             <form onSubmit={(e)=>handleLogIn(e)} className="flex flex-col bg-[#111111] p-3 rounded-xl">
                 <label>Username:</label>
@@ -62,9 +62,9 @@ function LogIn({user, setUser}) {
                 ></input>
             </form>
         </div>
-        <button type="submit" className='flex flex-row border border-base-300 bg-[#1a1a1a] rounded-xl p-3 text-gray-400 items-center mx-64 my-3 w-64 hover:border-2  hover:border-red-600 transition duration-500'>Sign In</button>
+        <button type="submit" className='flex flex-row border border-base-300 bg-[#1a1a1a] rounded-xl p-3 text-gray-400 items-center mx-auto my-3 w-64 hover:border-2  hover:border-red-600 transition duration-500'>Sign In</button>
 
-        <button onClick={goToSignUp} className='flex flex-row border border-base-300 items-center mx-64 my-3 w-64 hover:border-2  hover:border-red-600 transition duration-500'>Sign Up?</button>
+        <button onClick={goToSignUp} className='flex flex-row border border-base-300 items-center mx-auto my-3 w-64 hover:border-2  hover:border-red-600 transition duration-500'>Sign Up?</button>
     </div>
   )
 }
