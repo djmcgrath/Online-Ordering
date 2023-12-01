@@ -32,11 +32,11 @@ function LogIn({user, setUser}) {
     }
 
   return (
-    <div className="flex flex-col">
-        <h1>LogIn</h1>
+    <div className="border border-base-300 bg-base-200 rounded-xl p-3 mx-80 my-10">
+        <h1 className="flex flex-row border border-base-300 bg-base-200 rounded-xl p-3 mx-72">Login</h1>
         <div className="flex flex-col">
             <form onSubmit={(e)=>handleLogIn(e)} className="flex flex-col bg-[#111111] p-3 rounded-xl">
-                <label>Username</label>
+                <label>Username:</label>
                 <input 
                 type="text"
                 value={username}
@@ -44,7 +44,7 @@ function LogIn({user, setUser}) {
                 className='flex flex-grow bg-[#1a1a1a] rounded-xl p-3 text-gray-400'
                 onChange={(e) => setUsername(e.target.value)}
                 ></input>
-                <label>Email</label>
+                <label>Email:</label>
                 <input 
                 type="text"
                 value={email}
@@ -52,7 +52,7 @@ function LogIn({user, setUser}) {
                 className='flex flex-grow bg-[#1a1a1a] rounded-xl p-3 text-gray-400'
                 onChange={(e) => setEmail(e.target.value)}
                 ></input>
-                <label>Password</label>
+                <label>Password:</label>
                 <input 
                 type="password"
                 value={password}
@@ -60,10 +60,11 @@ function LogIn({user, setUser}) {
                 className='flex flex-grow bg-[#1a1a1a] rounded-xl p-3 text-gray-400'
                 onChange={(e) => setPassword(e.target.value)}
                 ></input>
-                <button type="submit" className='flex flex-grow bg-[#1a1a1a] rounded-xl p-3 text-gray-400'>Sign In</button>
             </form>
         </div>
-        <button onClick={goToSignUp} className=''>Sign Up?</button>
+        <button type="submit" className='flex flex-row border border-base-300 bg-[#1a1a1a] rounded-xl p-3 text-gray-400 items-center mx-64 my-3 w-64 hover:border-2  hover:border-red-600 transition duration-500'>Sign In</button>
+
+        <button onClick={goToSignUp} className='flex flex-row border border-base-300 items-center mx-64 my-3 w-64 hover:border-2  hover:border-red-600 transition duration-500'>Sign Up?</button>
     </div>
   )
 }

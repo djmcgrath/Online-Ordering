@@ -62,7 +62,7 @@ export default function CartCard({cartItem, currentCart, setCurrentCart}) {
               setQuantityValue(e.target.value);
               handlePatch(cartItem.id, e.target.value);
             }}
-            className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400 width:0.5rem"
+            className="bg-[#1a1a1a] p-3 rounded-xl border-gray-900 hover:border-2  hover:border-red-600 transition duration-500 text-gray-400 w-20"
           ></input>
           <button
             onClick={(e) => handleDelete(cartItem.id)}

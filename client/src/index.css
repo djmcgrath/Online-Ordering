@@ -75,9 +75,9 @@ button {
   transition: border-color 0.25s;
 }
 
-button:hover {
+/* button:hover {
   border-color: #e60c29;
-}
+} */
 
 #cards img {
   height: 185px;
